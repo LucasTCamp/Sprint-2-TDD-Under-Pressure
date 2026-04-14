@@ -7,9 +7,11 @@ def validate_ticket(code):
         return False
 
 def get_ticket_tier(code):
-    if 0 or 1 or 3 in code[2]:
+    if code.startswith("TK") is False:
+        return ValueError
+    elif code[2] == "0" or code[2] == "1" or code[2] == "2" or code[2] == "3":
         return "General"
-    elif code[2] == "7" or "8" or "9":
+    elif code[2] == "7" or code[2] == "8" or code[2] == "9":
         return "Platinum"
     else:
         return None
