@@ -1,3 +1,5 @@
+from ticket_validator import validate_ticket, get_ticket_tier, calculate_total
+
 def test_validate_ticket_works_with_valid_code():
     result = validate_ticket("TK874568")
     assert result == True
@@ -27,13 +29,13 @@ def test_get_ticket_tier_raises_ValueError_with_invalid():
     assert result == ValueError
 
 def test_calculate_total_works():
-    result = test_calculate_total([8.0, 6.0, 10.0], 0.5)
-    assert result = 12.0
+    result = calculate_total([8.0, 6.0, 10.0], 0.5)
+    assert result == 12.0
 
 def test_calculate_total_raises_ValueError_with_empty_prices():
-    result = test_calculate_total([], 0.5)
-    assert result = ValueError
+    result = calculate_total([], 0.5)
+    assert result == ValueError
 
 def test_calculate_total_raises_TypeError_with_prices_not_list():
-    result = test_calculate_total((8.0, 6.0, 10.0), 0.5)
-    assert result = TypeError
+    result = calculate_total((8.0, 6.0, 10.0), 0.5)
+    assert result == TypeError
